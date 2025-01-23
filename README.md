@@ -4,6 +4,8 @@ This is a Honeydew model for Google Analytics GA4 data collected to Snowflake vi
 
 The Snowflake Connector for Google Analytics Raw Data enables to automatically ingest event-level Google Analytics 4 (GA4) data from BigQuery into a Snowflake account.
 
+See installation guide [below](#installation).
+
 ### Contents
 
 Honeydew model enables analysis on raw data of a single GA4 property.
@@ -23,19 +25,24 @@ It extract all available GA4 records, including:
 
 **NOTE**: Every metric can be filtered, aggregated or slice by any attribute of any record.
 
+### Metrics
+
 Following additional metrics are defined, based on the corresponding GA4 definitions.
 
 **Event Metrics**
+
 1. Number of Events
 2. Number of Distinct Pages
 
 **Page Metrics**
+
 1. Number of Page Views
 1. Number of Unique Page Views
 1. Average Time On Page
 1. Average Engagement Time Per User
 
 **User Metrics**
+
 1. Number of Users
 1. Number of Active Users
 1. Number of New (First Time) Users
@@ -43,6 +50,7 @@ Following additional metrics are defined, based on the corresponding GA4 definit
 1. Total User Engagement Time
 
 **Session Metrics**
+
 1. Average Session Duration
 1. Average Engagement Time Per Session
 1. Average Events Per Session
@@ -58,6 +66,7 @@ Following additional metrics are defined, based on the corresponding GA4 definit
 1. First Time User Sessions Ratio (of all sessions)
 
 **Session Properties**
+
 1. Session entity (extracted from the event data)
 1. Is Bounced Session
 1. Is Engaged Session
