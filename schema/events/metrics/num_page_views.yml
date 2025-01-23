@@ -1,0 +1,14 @@
+type: metric
+entity: events
+name: num_page_views
+description: >-
+  A pageview is defined as a view of a page on your site that is being tracked
+  by the Analytics tracking code. If a user clicks reload after reaching the
+  page, this is counted as an additional pageview. If a user navigates to a
+  different page and then returns to the original page, a second pageview is
+  recorded as well.
+datatype: number
+labels: []
+folder: Behaviour
+sql: |-
+  count(events.session_key) FILTER (WHERE events.event_name = 'page_view')

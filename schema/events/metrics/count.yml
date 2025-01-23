@@ -1,0 +1,8 @@
+type: metric
+entity: events
+name: count
+description: |-
+  Auto-generated Metric: count of records in the entity
+datatype: number
+sql: |-
+  COUNT(events.event_timestamp)

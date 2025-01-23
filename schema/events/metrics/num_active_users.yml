@@ -1,0 +1,18 @@
+type: metric
+entity: events
+name: num_active_users
+description: >-
+  The number of unique users who engaged with your site or app in the specified
+  date range.
+datatype: number
+labels: []
+folder: Users
+sql: |-
+  users.count
+  FILTER (
+      WHERE (sessions.is_engaged_session = True
+          OR (events.platform = 'WEB' AND (events.event_name = 'first_visit' OR events.engagement_time_msec is not null)
+          )
+          OR (events.platform != 'WEB' AND (events.event_name = 'first_open' OR events.engagement_time_msec is not null)
+          )
+      ))

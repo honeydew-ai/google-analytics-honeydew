@@ -1,0 +1,7 @@
+type: calculated_attribute
+entity: sessions
+name: page_view_count
+datatype: number
+labels: []
+sql: |-
+  events.num_page_views

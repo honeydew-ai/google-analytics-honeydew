@@ -1,0 +1,8 @@
+type: metric
+entity: events
+name: num_new_users
+datatype: number
+labels: []
+folder: Users
+sql: |-
+  users.count FILTER (WHERE sessions.is_first_visit_session)

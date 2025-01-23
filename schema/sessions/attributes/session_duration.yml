@@ -1,0 +1,7 @@
+type: calculated_attribute
+entity: sessions
+name: session_duration
+datatype: float
+labels: []
+sql: |-
+  TIMESTAMPDIFF('seconds', sessions.session_start, sessions.session_end)

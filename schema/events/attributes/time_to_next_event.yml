@@ -1,0 +1,10 @@
+type: calculated_attribute
+entity: events
+name: time_to_next_event
+datatype: number
+labels: []
+sql: >-
+
+  TIMESTAMPDIFF('seconds', events.event_timestamp ,
+  LEAD(events.event_timestamp) OVER (PARTITION BY
+  events.session_key ORDER BY events.event_timestamp asc))

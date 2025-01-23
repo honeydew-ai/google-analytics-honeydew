@@ -1,0 +1,12 @@
+type: metric
+entity: sessions
+name: num_views_per_session
+description: >-
+  The number of app screens or web pages your users viewed per session. Repeated
+  views of a single page or screen are counted.
+
+  Views per session = (screen_view events + page_view events) / total sessions
+datatype: float
+labels: []
+sql: |-
+  sum(sessions.page_view_count) / sessions.num_sessions

@@ -1,0 +1,16 @@
+type: calculated_attribute
+entity: events
+name: time_to_next_page
+datatype: number
+labels: []
+sql: >-
+
+  case when events.event_name = 'page_view'
+
+  then TIMESTAMPDIFF('second', events.event_timestamp,
+  LEAD(events.event_timestamp) OVER (PARTITION BY
+  events.session_key , case when events.event_name =
+  'page_view' then true else false end ORDER BY events.event_timestamp
+  asc))
+
+   else null end

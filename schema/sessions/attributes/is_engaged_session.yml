@@ -1,0 +1,17 @@
+type: calculated_attribute
+entity: sessions
+name: is_engaged_session
+description: >-
+  session that lasted 10 seconds or longer, or had 1 or more conversion events
+  or 2 or more page or screen views.
+
+  Engaged sessions is the inverse of low engagement sessions.
+datatype: bool
+labels: []
+sql: |-
+  CASE WHEN
+           --  MAX(events.session_engaged) = 1
+              MAX(ZEROIFNULL(events.engaged_session_event)) = 1
+        THEN TRUE
+        ELSE FALSE
+  END

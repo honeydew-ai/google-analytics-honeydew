@@ -1,0 +1,102 @@
+type: dataset
+entity: date
+name: date
+dataset_type: sql
+labels: []
+sql: |-
+  SELECT
+    DATEADD(DAY, row_number() over (order by seq), CURRENT_DATE - 365*10)::DATE AS DATE,
+    DAYOFMONTH(DATE) as DAY_OF_MONTH,
+    TO_VARCHAR(DATE, 'dy') as DAY_OF_WEEK,
+    DAYOFWEEK(DATE) as DAY_OF_WEEK_INDEX,
+    DAYOFYEAR(DATE) as DAY_OF_YEAR,
+    DATE_TRUNC('month', DATE) as MONTH,
+    MONTHNAME(DATE) as MONTH_NAME,
+    MONTH(DATE) as MONTH_NUM,
+    DATE_TRUNC('quarter', DATE) as QUARTER,
+    'Q' || QUARTER(DATE) as QUARTER_OF_YEAR,
+    DATE_TRUNC('week', DATE) as WEEK,
+    WEEKOFYEAR(DATE) as WEEK_OF_YEAR,
+    YEAR(DATE) as YEAR,
+  FROM
+    (SELECT SEQ4() as seq
+    FROM TABLE(GENERATOR(ROWCOUNT=>365*10)))
+attributes:
+  - column: DATE
+    name: date
+    description: |-
+      Day date, format: '2024-06-25'
+    datatype: date
+    labels: []
+  - column: DAY_OF_MONTH
+    name: day_of_month
+    description: |-
+      Day index in month, 1-31
+    datatype: number
+    labels: []
+  - column: DAY_OF_WEEK
+    name: day_of_week
+    description: |-
+      Day of week 3 letter name such as Sun
+    datatype: string
+    labels: []
+  - column: DAY_OF_WEEK_INDEX
+    name: day_of_week_index
+    description: |-
+      Day of week index, 0-6
+    datatype: number
+    labels: []
+  - column: DAY_OF_YEAR
+    name: day_of_year
+    description: |-
+      Day index in year 0-364
+    datatype: number
+    labels: []
+  - column: MONTH
+    name: month
+    description: |-
+      Beginning of month, format: '2024-06-01'
+    datatype: date
+    labels: []
+  - column: MONTH_NAME
+    name: month_name
+    description: |-
+      3 letter month name such as Jan, Feb
+    datatype: string
+    labels: []
+  - column: MONTH_NUM
+    name: month_num
+    description: |-
+      Month number 0-11
+    datatype: number
+    labels: []
+  - column: QUARTER
+    name: quarter
+    description: |-
+      Beginning of quarter, format: '2024-06-01'
+    datatype: date
+    labels: []
+  - column: QUARTER_OF_YEAR
+    name: quarter_of_year
+    description: |-
+      Quarter without a year. Values: Q1/Q2/Q3/Q4
+    datatype: string
+    labels: []
+  - column: WEEK
+    name: week
+    description: |-
+      Beginning of week, format: '2024-06-01'
+    datatype: date
+    labels: []
+  - column: WEEK_OF_YEAR
+    name: week_of_year
+    description: |-
+      Week of year index 0-51
+    datatype: number
+    labels: []
+  - column: YEAR
+    name: year
+    description: |-
+      Year number, such as 2024
+    datatype: number
+    labels: []

@@ -1,0 +1,12 @@
+type: metric
+entity: events
+name: num_distinct_pages
+description: |-
+  Number of the distinct pages.
+  Example, if same page is refreshed 4 time in a session it will be counted as 1
+datatype: number
+labels: []
+sql: >-
+
+  Count(DISTINCT events.page_location) Filter (where events.event_name =
+  'page_view')

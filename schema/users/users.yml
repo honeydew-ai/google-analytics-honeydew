@@ -1,0 +1,14 @@
+type: entity
+name: users
+labels: []
+keys:
+  - pseudo_user_id
+key_dataset: users
+relations:
+  - target_entity: events
+    rel_type: one-to-many
+    rel_join_type: right
+    cross_filtering: both
+    connection:
+      - src_field: pseudo_user_id
+        target_field: user_pseudo_id

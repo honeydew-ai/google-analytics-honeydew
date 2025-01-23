@@ -1,0 +1,9 @@
+type: metric
+entity: sessions
+name: engaged_sessions_ratio
+description: |-
+  Ratio between 'Engaged sessions' and 'Total number of sessions'
+datatype: float
+labels: []
+sql: |-
+  sessions.num_engaged_sessions / sessions.num_sessions

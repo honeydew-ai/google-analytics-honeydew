@@ -1,0 +1,7 @@
+type: metric
+entity: sessions
+name: Num_new_sessions
+datatype: number
+labels: []
+sql: |-
+  count(sessions.session_key) FILTER (where sessions.is_first_visit_session = True)

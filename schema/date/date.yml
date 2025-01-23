@@ -1,0 +1,14 @@
+type: entity
+name: date
+labels: []
+keys:
+  - DATE
+key_dataset: date
+relations:
+  - target_entity: events
+    rel_type: one-to-many
+    rel_join_type: right
+    cross_filtering: one-to-many
+    connection:
+      - src_field: date
+        target_field: event_date

@@ -1,0 +1,10 @@
+type: entity
+name: events
+labels: []
+keys:
+  - event_timestamp
+  - event_name
+  - user_pseudo_id
+  - ga_session_id
+key_dataset: events
+relations: []

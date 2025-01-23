@@ -1,0 +1,9 @@
+type: metric
+entity: sessions
+name: Num_sessions
+description: |-
+  Counts sessions (also called visits)
+datatype: number
+labels: []
+sql: |-
+  count(sessions.session_key)

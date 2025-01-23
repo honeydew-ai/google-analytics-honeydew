@@ -1,0 +1,8 @@
+type: metric
+entity: events
+name: avg_time_to_on_page
+datatype: float
+labels: []
+folder: Behaviour
+sql: |-
+  AVG(events.time_to_next_page)

@@ -1,0 +1,9 @@
+type: metric
+entity: sessions
+name: Num_bounces
+description: |-
+  Total Number of Sessions with 0 Duration and without Engagement
+datatype: float
+labels: []
+sql: |-
+  COUNT(sessions.session_key) FILTER (WHERE sessions.is_bounce = TRUE)

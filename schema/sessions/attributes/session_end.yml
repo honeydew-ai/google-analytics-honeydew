@@ -1,0 +1,7 @@
+type: calculated_attribute
+entity: sessions
+name: Session_end
+datatype: timestamp
+labels: []
+sql: |-
+  MAX(events.event_timestamp)

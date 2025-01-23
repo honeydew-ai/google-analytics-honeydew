@@ -1,0 +1,14 @@
+type: entity
+name: sessions
+labels: []
+keys:
+  - session_key
+key_dataset: sessions
+relations:
+  - target_entity: events
+    rel_type: one-to-many
+    rel_join_type: right
+    cross_filtering: both
+    connection:
+      - src_field: session_key
+        target_field: session_key

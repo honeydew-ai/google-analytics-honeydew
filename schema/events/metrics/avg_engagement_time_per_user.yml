@@ -1,0 +1,12 @@
+type: metric
+entity: events
+name: avg_engagement_time_per_user
+description: >-
+  The average time that your website was in focus in a user's browser or an app
+  was in the foreground of a user's device. Average engagement time = total user
+  engagement durations / number of active users
+datatype: number
+labels: []
+folder: Behaviour
+sql: |-
+  events.user_engagement / events.num_active_users

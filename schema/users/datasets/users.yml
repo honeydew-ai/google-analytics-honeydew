@@ -1,0 +1,93 @@
+type: dataset
+entity: users
+name: users
+dataset_type: table
+labels: []
+sql: >-
+
+  GOOGLE_ANALYTICS_RAW_DATA_DEST_SCHEMA.PSEUDONYMOUS_USERS_<property_id>__VIEW
+attributes:
+  - column: AUDIENCES
+    name: audiences
+    datatype: string
+    labels: []
+  - column: LAST_UPDATED_DATE
+    name: last_updated_date
+    datatype: string
+    labels: []
+  - column: OCCURRENCE_DATE
+    name: occurrence_date
+    datatype: string
+    labels: []
+  - column: PREDICTIONS_CHURN_SCORE_7D
+    name: predictions_churn_score_7d
+    datatype: float
+    labels: []
+  - column: PREDICTIONS_IN_APP_PURCHASE_SCORE_7D
+    name: predictions_in_app_purchase_score_7d
+    datatype: float
+    labels: []
+  - column: PREDICTIONS_PURCHASE_SCORE_7D
+    name: predictions_purchase_score_7d
+    datatype: float
+    labels: []
+  - column: PREDICTIONS_REVENUE_28D_IN_USD
+    name: predictions_revenue_28d_in_usd
+    datatype: float
+    labels: []
+  - column: PRIVACY_INFO_IS_ADS_PERSONALIZATION_ALLOWED
+    name: privacy_info_is_ads_personalization_allowed
+    datatype: string
+    labels: []
+  - column: PRIVACY_INFO_IS_LIMITED_AD_TRACKING
+    name: privacy_info_is_limited_ad_tracking
+    datatype: string
+    labels: []
+  - column: PSEUDO_USER_ID
+    name: pseudo_user_id
+    datatype: string
+    labels: []
+  - column: STREAM_ID
+    name: stream_id
+    datatype: string
+    labels: []
+  - column: USER_INFO_FIRST_PURCHASE_DATE
+    name: user_info_first_purchase_date
+    datatype: string
+    labels: []
+  - column: USER_INFO_LAST_ACTIVE_TIMESTAMP_MICROS
+    name: user_info_last_active_timestamp_micros
+    datatype: number
+    labels: []
+  - column: USER_INFO_USER_FIRST_TOUCH_TIMESTAMP_MICROS
+    name: user_info_user_first_touch_timestamp_micros
+    datatype: number
+    labels: []
+  - column: USER_LTV_ENGAGED_SESSIONS
+    name: user_ltv_engaged_sessions
+    datatype: number
+    labels: []
+  - column: USER_LTV_ENGAGEMENT_TIME_MILLIS
+    name: user_ltv_engagement_time_millis
+    datatype: number
+    labels: []
+  - column: USER_LTV_PURCHASES
+    name: user_ltv_purchases
+    datatype: number
+    labels: []
+  - column: USER_LTV_REVENUE_IN_USD
+    name: user_ltv_revenue_in_usd
+    datatype: float
+    labels: []
+  - column: USER_LTV_SESSION_DURATION_MICROS
+    name: user_ltv_session_duration_micros
+    datatype: number
+    labels: []
+  - column: USER_LTV_SESSIONS
+    name: user_ltv_sessions
+    datatype: number
+    labels: []
+  - column: user_properties
+    name: user_properties
+    datatype: string
+    labels: []

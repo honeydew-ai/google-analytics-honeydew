@@ -1,0 +1,9 @@
+type: calculated_attribute
+entity: users
+name: first_touch_date
+datatype: date
+labels: []
+sql: >-
+
+  CAST(TO_TIMESTAMP(users.user_info_user_first_touch_timestamp_micros / 1000000)
+  AS DATE)

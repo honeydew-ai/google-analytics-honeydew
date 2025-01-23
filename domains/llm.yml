@@ -1,0 +1,105 @@
+type: domain
+name: llm
+description: |-
+  This is GA4 data
+labels: []
+filters: []
+source_filters: []
+entities:
+  - name: sessions
+    fields:
+      - name: is_bounce
+      - name: is_engaged_session
+      - name: is_first_visit_session
+      - name: page_view_count
+      - name: session_duration
+      - name: session_duration_tiers
+      - name: session_end
+      - name: session_start
+      - name: ga_session_id
+      - name: ga_session_number
+      - name: session_key
+      - name: user_id
+      - name: user_pseudo_id
+      - name: avg_page_view_per_session
+      - name: avg_session_duration
+      - name: bounce_rate
+      - name: num_bounces
+      - name: num_engaged_sessions
+      - name: num_new_sessions
+      - name: num_sessions
+      - name: engaged_sessions_ratio
+      - name: new_sessions_ratio
+      - name: num_views_per_session
+  - name: events
+    fields:
+      - name: num_users
+      - name: num_returning_users
+      - name: num_new_users
+      - name: num_events
+      - name: num_active_users
+      - name: count
+      - name: traffic_source_source
+      - name: traffic_source_name
+      - name: traffic_source_medium
+      - name: app_info_firebase_app_id
+      - name: app_info_id
+      - name: app_info_install_source
+      - name: app_info_install_store
+      - name: app_info_version
+      - name: campaign
+      - name: device_advertising_id
+      - name: device_browser
+      - name: device_browser_version
+      - name: device_category
+      - name: device_mobile_brand_name
+      - name: device_mobile_marketing_name
+      - name: device_is_limited_ad_tracking
+      - name: device_language
+      - name: device_mobile_model_name
+      - name: device_mobile_os_hardware_model
+      - name: device_operating_system_version
+      - name: device_operating_system
+      - name: device_time_zone_offset_seconds
+      - name: device_vendor_id
+      - name: device_web_info_browser
+      - name: device_web_info_browser_version
+      - name: device_web_info_hostname
+      - name: event_timestamp
+      - name: event_name
+      - name: geo_city
+      - name: geo_country
+      - name: geo_continent
+      - name: geo_metro
+      - name: geo_region
+      - name: geo_sub_continent
+      - name: platform
+      - name: page_title
+      - name: page_referrer
+      - name: page_location
+      - name: medium
+      - name: percent_scrolled
+      - name: term
+      - name: time_to_next_event
+      - name: time_to_next_page
+      - name: page_referrer_host
+      - name: num_unique_page_views
+      - name: num_page_views
+      - name: num_distinct_pages
+      - name: user_engagement
+      - name: avg_engaged_sessions_per_user
+      - name: avg_engagement_time_per_session
+      - name: avg_engagement_time_per_user
+      - name: avg_events_per_session
+  - name: date
+    fields:
+      - name: date
+      - name: day_of_week
+      - name: month
+      - name: month_name
+      - name: quarter
+      - name: week
+      - name: year
+      - name: count
+      - name: quarter_of_year
+active_roles: []

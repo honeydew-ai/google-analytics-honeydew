@@ -1,0 +1,12 @@
+type: metric
+entity: events
+name: user_engagement
+description: >-
+  User engagement is the amount of time someone spends with your web page in
+  focus or app screen in the foreground, which allows you to measure when users
+  actively use your site or app.
+datatype: number
+labels: []
+folder: Users
+sql: |-
+  Sum(FLOOR(events.engagement_time_msec / 1000))

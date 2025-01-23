@@ -1,0 +1,9 @@
+type: metric
+entity: sessions
+name: Bounce_rate
+description: |-
+  Percentage of Bounced Sessions out of All Sessions
+datatype: float
+labels: []
+sql: |-
+  sessions.num_bounces/sessions.num_sessions

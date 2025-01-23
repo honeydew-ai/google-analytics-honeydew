@@ -1,0 +1,10 @@
+type: metric
+entity: sessions
+name: avg_session_duration
+description: |-
+  The Average Session Duration in seconds
+  consider how to change to HH:MM:SS Format
+datatype: float
+labels: []
+sql: |-
+  AVG(sessions.session_duration)

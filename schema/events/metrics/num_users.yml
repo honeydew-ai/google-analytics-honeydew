@@ -1,0 +1,11 @@
+type: metric
+entity: events
+name: num_users
+description: >-
+  The number of unique users who triggered any event in the specified date
+  range.
+datatype: number
+labels: []
+folder: Users
+sql: |-
+  users.count

@@ -1,0 +1,26 @@
+type: dataset
+entity: sessions
+name: sessions
+dataset_type: entity
+labels: []
+sql: |-
+  events
+attributes:
+  - column: ga_session_id
+    name: ga_session_id
+    datatype: number
+  - column: ga_session_number
+    name: ga_session_number
+    datatype: number
+  - column: session_key
+    name: session_key
+    datatype: string
+  - column: user_id
+    name: user_id
+    datatype: string
+  - column: user_pseudo_id
+    name: user_pseudo_id
+    datatype: string
+  - column: event_date
+    name: session_date
+    datatype: date

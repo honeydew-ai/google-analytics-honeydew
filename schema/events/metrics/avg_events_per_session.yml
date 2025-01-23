@@ -1,0 +1,10 @@
+type: metric
+entity: events
+name: avg_events_per_session
+description: |-
+  The average number of events per session.
+datatype: number
+labels: []
+folder: Sessions
+sql: |-
+  events.num_events / sessions.num_sessions

@@ -1,0 +1,9 @@
+type: calculated_attribute
+entity: sessions
+name: is_first_visit_session
+datatype: bool
+labels: []
+sql: >-
+
+  CASE WHEN count_if(events.event_name = 'first_visit') = 0 THEN false
+  ELSE true END

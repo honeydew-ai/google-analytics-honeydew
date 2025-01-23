@@ -1,0 +1,7 @@
+type: calculated_attribute
+entity: events
+name: page_referrer_host
+datatype: string
+labels: []
+sql: |-
+  GET_PATH(PARSE_URL(events.page_referrer), 'host')

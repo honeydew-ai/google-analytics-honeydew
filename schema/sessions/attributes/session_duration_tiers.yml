@@ -1,0 +1,20 @@
+type: calculated_attribute
+entity: sessions
+name: session_duration_tiers
+datatype: string
+labels: []
+sql: >-
+
+  CASE WHEN (sessions.session_duration) < 10 THEN '0 (Below 10)' WHEN
+  (sessions.session_duration) >= 10 AND (sessions.session_duration) < 30 THEN
+  '10 to 29' WHEN (sessions.session_duration) >= 30 AND
+  (sessions.session_duration) < 60 THEN '30 to 59' WHEN
+  (sessions.session_duration) >= 60 AND (sessions.session_duration) < 120 THEN
+  '60 to 119' WHEN (sessions.session_duration) >= 120 AND
+  (sessions.session_duration) < 180 THEN '120 to 179' WHEN
+  (sessions.session_duration) >= 180 AND (sessions.session_duration) < 240 THEN
+  '180 to 239' WHEN (sessions.session_duration) >= 240 AND
+  (sessions.session_duration) < 300 THEN '240 to 299' WHEN
+  (sessions.session_duration) >= 300 AND (sessions.session_duration) < 600 THEN
+  '300 to 599' WHEN (sessions.session_duration) >= 600 THEN '600 or Above' ELSE
+  'Undefined' END

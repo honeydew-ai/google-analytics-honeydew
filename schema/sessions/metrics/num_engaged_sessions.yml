@@ -1,0 +1,15 @@
+type: metric
+entity: sessions
+name: num_engaged_sessions
+description: >-
+  The number of sessions that lasted 10 seconds or longer, or had 1 or more
+  conversion events or 2 or more page or screen views.
+
+  Engaged sessions is the inverse of low engagement sessions.
+datatype: number
+labels: []
+sql: |-
+  --count(DISTINCT  CONCAT(sessions.user_pseudo_id, sessions.ga_session_id))
+  -- FILTER (Where sessions.session_start_even = true)
+  count(sessions.session_key)
+   FILTER (Where sessions.is_engaged_session = true)

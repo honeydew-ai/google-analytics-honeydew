@@ -1,0 +1,7 @@
+type: calculated_attribute
+entity: date
+name: day
+datatype: string
+labels: []
+sql: |-
+  date.date

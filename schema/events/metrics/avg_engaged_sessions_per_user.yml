@@ -1,0 +1,10 @@
+type: metric
+entity: events
+name: avg_engaged_sessions_per_user
+description: |-
+  The average number of engaged sessions per active user.
+datatype: float
+labels: []
+folder: Sessions
+sql: |-
+  sessions.num_engaged_sessions / events.num_active_users

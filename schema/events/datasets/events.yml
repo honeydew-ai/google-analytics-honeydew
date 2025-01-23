@@ -1,0 +1,567 @@
+type: dataset
+entity: events
+name: events
+dataset_type: sql
+labels: []
+sql: >-
+  select
+          FILTER(event_params , a -> a:"key" = 'engaged_session_event')[0]:"value":"int_value"::number as  engaged_session_event,
+          FILTER(event_params , a -> a:"key" = 'ga_session_id')[0]:"value":"int_value"::number as  ga_session_id,
+          FILTER(event_params , a -> a:"key" = 'ga_session_number')[0]:"value":"int_value"::number as  ga_session_number,
+          FILTER(event_params , a -> a:"key" = 'medium')[0]:"value":"string_value"::string as  medium,
+          FILTER(event_params , a -> a:"key" = 'page_title')[0]:"value":"string_value"::string as  page_title,
+          FILTER(event_params , a -> a:"key" = 'source')[0]:"value":"string_value"::string as  source,
+          FILTER(event_params , a -> a:"key" = 'page_referrer')[0]:"value":"string_value"::string as  page_referrer,
+          FILTER(event_params , a -> a:"key" = 'page_location')[0]:"value":"string_value"::string as  page_location,
+          FILTER(event_params , a -> a:"key" = 'campaign')[0]:"value":"string_value"::string as  campaign,
+          FILTER(event_params , a -> a:"key" = 'engagement_time_msec')[0]:"value":"int_value"::number as  engagement_time_msec,
+          FILTER(event_params , a -> a:"key" = 'term')[0]:"value":"string_value"::string as  term,
+          FILTER(event_params , a -> a:"key" = 'percent_scrolled')[0]:"value":"int_value"::number as  percent_scrolled,
+          coalesce(FILTER(event_params , a -> a:"key" = 'session_engaged')[0]:"value":"string_value"::string,
+                   FILTER(event_params , a -> a:"key" = 'session_engaged')[0]:"value":"int_value"::number)::number as session_engaged,
+          *
+  FROM
+  GOOGLE_ANALYTICS_RAW_DATA_DEST_SCHEMA.ANALYTICS_<property_id>__VIEW
+attributes:
+  - column: APP_INFO_FIREBASE_APP_ID
+    name: app_info_firebase_app_id
+    datatype: string
+    labels: []
+    folder: Event App Info
+  - column: APP_INFO_ID
+    name: app_info_id
+    datatype: string
+    labels: []
+    folder: Event App Info
+  - column: APP_INFO_INSTALL_SOURCE
+    name: app_info_install_source
+    datatype: string
+    labels: []
+    folder: Event App Info
+  - column: APP_INFO_INSTALL_STORE
+    name: app_info_install_store
+    datatype: string
+    labels: []
+    folder: Event App Info
+  - column: APP_INFO_VERSION
+    name: app_info_version
+    datatype: string
+    labels: []
+    folder: Event App Info
+  - column: BATCH_EVENT_INDEX
+    name: batch_event_index
+    description: >-
+      A number indicating the sequential order of each event within a batch
+      based on their order of occurrence on the device.
+    datatype: number
+    labels: []
+  - column: BATCH_ORDERING_ID
+    name: batch_ordering_id
+    description: >-
+      A monotonically increasing number that is incremented each time a network
+      request is sent from a given page.
+    datatype: number
+    labels: []
+  - column: BATCH_PAGE_ID
+    name: batch_page_id
+    description: >-
+      A sequential number assigned to a page that increases for each subsequent
+      page within an engagement.
+    datatype: number
+    labels: []
+  - column: CAMPAIGN
+    name: campaign
+    description: |-
+      The name of a promotion or marketing campaign that led to a key event.
+    datatype: string
+    labels: []
+  - column: COLLECTED_TRAFIC_SOURCE_DCLID
+    name: collected_trafic_source_dclid
+    datatype: string
+    labels: []
+    folder: Event Collected Traffic Source
+  - column: COLLECTED_TRAFIC_SOURCE_GCLID
+    name: collected_trafic_source_gclid
+    datatype: string
+    labels: []
+    folder: Event Collected Traffic Source
+  - column: COLLECTED_TRAFIC_SOURCE_MANUAL_CAMPAIGN_ID
+    name: collected_trafic_source_manual_campaign_id
+    datatype: string
+    labels: []
+    folder: Event Collected Traffic Source
+  - column: COLLECTED_TRAFIC_SOURCE_MANUAL_CAMPAIGN_NAME
+    name: collected_trafic_source_manual_campaign_name
+    datatype: string
+    labels: []
+    folder: Event Collected Traffic Source
+  - column: COLLECTED_TRAFIC_SOURCE_MANUAL_CONTENT
+    name: collected_trafic_source_manual_content
+    datatype: string
+    labels: []
+    folder: Event Collected Traffic Source
+  - column: COLLECTED_TRAFIC_SOURCE_MANUAL_MEDIUM
+    name: collected_trafic_source_manual_medium
+    datatype: string
+    labels: []
+    folder: Event Collected Traffic Source
+  - column: COLLECTED_TRAFIC_SOURCE_MANUAL_SOURCE
+    name: collected_trafic_source_manual_source
+    datatype: string
+    labels: []
+    folder: Event Collected Traffic Source
+  - column: COLLECTED_TRAFIC_SOURCE_MANUAL_TERM
+    name: collected_trafic_source_manual_term
+    description: |-
+      The term that was used to acquire the user that led to a key event.
+    datatype: string
+    labels: []
+    folder: Event Collected Traffic Source
+  - column: COLLECTED_TRAFIC_SOURCE_SRSLTID
+    name: collected_trafic_source_srsltid
+    datatype: string
+    labels: []
+    folder: Event Collected Traffic Source
+  - column: DEVICE_ADVERTISING_ID
+    name: device_advertising_id
+    description: |-
+      Advertising ID/IDFA.
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_BROWSER
+    name: device_browser
+    description: |-
+      The browser in which the user viewed content.
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_BROWSER_VERSION
+    name: device_browser_version
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_CATEGORY
+    name: device_category
+    datatype: string
+    labels: []
+    folder: Event Device
+    metadata:
+      - name: honeydew_ai
+        metadata:
+          - name: values
+            value: |-
+              desktop
+              mobile
+              tablet
+              smart tv
+  - column: DEVICE_IS_LIMITED_AD_TRACKING
+    name: device_is_limited_ad_tracking
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_LANGUAGE
+    name: device_language
+    description: |-
+      ISO language code such as en-us
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_MOBILE_BRAND_NAME
+    name: device_mobile_brand_name
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_MOBILE_MARKETING_NAME
+    name: device_mobile_marketing_name
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_MOBILE_MODEL_NAME
+    name: device_mobile_model_name
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_MOBILE_OS_HARDWARE_MODEL
+    name: device_mobile_os_hardware_model
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_OPERATING_SYSTEM
+    name: device_operating_system
+    datatype: string
+    labels: []
+    folder: Event Device
+    metadata:
+      - name: honeydew_ai
+        metadata:
+          - name: values
+            value: |-
+              Macintosh
+              Windows
+              iOS
+              Android
+              Linux
+              Chrome OS
+  - column: DEVICE_OPERATING_SYSTEM_VERSION
+    name: device_operating_system_version
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_TIME_ZONE_OFFSET_SECONDS
+    name: device_time_zone_offset_seconds
+    description: |-
+      The offset from GMT in seconds.
+    datatype: number
+    labels: []
+    folder: Event Device
+  - column: DEVICE_VENDOR_ID
+    name: device_vendor_id
+    description: |-
+      IDFV (present only if IDFA is not collected).
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_WEB_INFO_BROWSER
+    name: device_web_info_browser
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_WEB_INFO_BROWSER_VERSION
+    name: device_web_info_browser_version
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: DEVICE_WEB_INFO_HOSTNAME
+    name: device_web_info_hostname
+    datatype: string
+    labels: []
+    folder: Event Device
+  - column: ECOMMERCE_PURCHASE_REVENUE
+    name: ecommerce_purchase_revenue
+    datatype: float
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_PURCHASE_REVENUE_IN_USD
+    name: ecommerce_purchase_revenue_in_usd
+    datatype: float
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_REFUND_VALUE
+    name: ecommerce_refund_value
+    datatype: float
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_REFUND_VALUE_IN_USD
+    name: ecommerce_refund_value_in_usd
+    datatype: float
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_SHIPPING_VALUE
+    name: ecommerce_shipping_value
+    datatype: float
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_SHIPPING_VALUE_IN_USD
+    name: ecommerce_shipping_value_in_usd
+    datatype: float
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_TAX_VALUE
+    name: ecommerce_tax_value
+    datatype: float
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_TAX_VALUE_IN_USD
+    name: ecommerce_tax_value_in_usd
+    datatype: float
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_TOTAL_ITEM_QUANTITY
+    name: ecommerce_total_item_quantity
+    datatype: number
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_TRANSACTION_ID
+    name: ecommerce_transaction_id
+    datatype: string
+    labels: []
+    folder: Event ECommerce
+  - column: ECOMMERCE_UNIQUE_ITEMS
+    name: ecommerce_unique_items
+    datatype: number
+    labels: []
+    folder: Event ECommerce
+  - column: ENGAGED_SESSION_EVENT
+    name: engaged_session_event
+    datatype: number
+    labels: []
+  - column: ENGAGEMENT_TIME_MSEC
+    name: engagement_time_msec
+    datatype: number
+    labels: []
+  - column: EVENT_BUNDLE_SEQUENCE_ID
+    name: event_bundle_sequence_id
+    datatype: number
+    labels: []
+  - column: EVENT_DATE
+    name: event_date
+    datatype: date
+    labels: []
+  - column: EVENT_DIMENSIONS_HOSTNAME
+    name: event_dimensions_hostname
+    datatype: string
+    labels: []
+  - column: EVENT_NAME
+    name: event_name
+    datatype: string
+    labels: []
+  - column: EVENT_PARAMS
+    name: event_params
+    datatype: string
+    labels: []
+  - column: EVENT_PREVIOUS_TIMESTAMP
+    name: event_previous_timestamp
+    datatype: timestamp
+    labels: []
+  - column: EVENT_SERVER_TIMESTAMP_OFFSET
+    name: event_server_timestamp_offset
+    datatype: number
+    labels: []
+  - column: EVENT_TIMESTAMP
+    name: event_timestamp
+    datatype: timestamp
+    labels: []
+  - column: EVENT_VALUE_IN_USD
+    name: event_value_in_usd
+    datatype: float
+    labels: []
+  - column: GA_SESSION_ID
+    name: ga_session_id
+    datatype: number
+    labels: []
+  - column: GA_SESSION_NUMBER
+    name: ga_session_number
+    datatype: number
+    labels: []
+  - column: GEO_CITY
+    name: geo_city
+    datatype: string
+    labels: []
+    folder: Event Geography
+  - column: GEO_CONTINENT
+    name: geo_continent
+    datatype: string
+    labels: []
+    folder: Event Geography
+  - column: GEO_COUNTRY
+    name: geo_country
+    description: |-
+      The country from which events were reported, based on IP address.
+    datatype: string
+    labels: []
+    folder: Event Geography
+    metadata:
+      - name: honeydew_ai
+        metadata:
+          - name: description
+            value: |-
+              Capital Case , full name
+          - name: values
+            value: |-
+              United States
+              India
+              United Kingdom
+              Germany
+              ...
+  - column: GEO_METRO
+    name: geo_metro
+    datatype: string
+    labels: []
+    folder: Event Geography
+  - column: GEO_REGION
+    name: geo_region
+    datatype: string
+    labels: []
+    folder: Event Geography
+  - column: GEO_SUB_CONTINENT
+    name: geo_sub_continent
+    datatype: string
+    labels: []
+    folder: Event Geography
+  - column: IS_ACTIVE_USER
+    name: is_active_user
+    description: |-
+      Whether the user was active at any point in the calendar day
+    datatype: bool
+    labels: []
+  - column: ITEMS
+    name: items
+    datatype: string
+    labels: []
+  - column: MEDIUM
+    name: medium
+    description: |-
+      The method for acquiring users to your website or application.
+
+      Referral medium. NULL is unknown
+    datatype: string
+    labels: []
+    metadata:
+      - name: honeydew_ai
+        metadata:
+          - name: values
+            value: |-
+              organic
+              referral
+              email
+              display
+              paidsocial
+              social
+              paidnewsletter
+              map
+              paidsearch
+  - column: PAGE_LOCATION
+    name: page_location
+    description: |-
+      The complete URL of the webpage that someone visited on your website.
+    datatype: string
+    labels: []
+    metadata:
+      - name: honeydew_ai
+        metadata:
+          - name: description
+            value: |-
+              use ILIKE to search
+  - column: PAGE_REFERRER
+    name: page_referrer
+    description: >-
+      The referring URL, which is the user's previous URL and can be your
+      website's domain or other domains.
+    datatype: string
+    labels: []
+  - column: PAGE_TITLE
+    name: page_title
+    description: |-
+      The page title that you set on your website.
+    datatype: string
+    labels: []
+  - column: PERCENT_SCROLLED
+    name: percent_scrolled
+    datatype: number
+    labels: []
+  - column: PLATFORM
+    name: platform
+    datatype: string
+    labels: []
+    metadata:
+      - name: honeydew_ai
+        metadata:
+          - name: values
+            value: |-
+              WEB
+  - column: PRIVACY_INFO_ADS_STORAGE
+    name: privacy_info_ads_storage
+    datatype: string
+    labels: []
+    folder: Event Privacy Info
+  - column: PRIVACY_INFO_ANALYTICS_STORAGE
+    name: privacy_info_analytics_storage
+    datatype: string
+    labels: []
+    folder: Event Privacy Info
+  - column: PRIVACY_INFO_USES_TRANSIENT_TOKEN
+    name: privacy_info_uses_transient_token
+    datatype: string
+    labels: []
+    folder: Event Privacy Info
+  - column: PUBLISHER_AD_FORMAT
+    name: publisher_ad_format
+    datatype: string
+    labels: []
+    folder: Event Publisher
+  - column: PUBLISHER_AD_REVENUE_IN_USD
+    name: publisher_ad_revenue_in_usd
+    datatype: float
+    labels: []
+    folder: Event Publisher
+  - column: PUBLISHER_AD_SOURCE_NAME
+    name: publisher_ad_source_name
+    datatype: string
+    labels: []
+    folder: Event Publisher
+  - column: PUBLISHER_AD_UNIT_ID
+    name: publisher_ad_unit_id
+    datatype: string
+    labels: []
+    folder: Event Publisher
+  - column: SESSION_ENGAGED
+    name: session_engaged
+    datatype: number
+    labels: []
+  - column: SOURCE
+    name: source
+    description: >-
+      A representation of the publisher or inventory source from which traffic
+      originated.
+
+      For example, users who return to your website from Google Search show as
+      "google" in the Session source dimension. Examples include “google”,
+      “youtube”, and “gmail”.
+    datatype: string
+    labels: []
+  - column: STREAM_ID
+    name: stream_id
+    datatype: string
+    labels: []
+  - column: TERM
+    name: term
+    description: |-
+      The term that was used to acquire the user that led to a key event.
+    datatype: string
+    labels: []
+  - column: TRAFFIC_SOURCE_MEDIUM
+    name: traffic_source_medium
+    datatype: string
+    labels: []
+    folder: Event Traffic Source
+  - column: TRAFFIC_SOURCE_NAME
+    name: traffic_source_name
+    datatype: string
+    labels: []
+    folder: Event Traffic Source
+  - column: TRAFFIC_SOURCE_SOURCE
+    name: traffic_source_source
+    datatype: string
+    labels: []
+    folder: Event Traffic Source
+  - column: USER_FIRST_TOUCH_TIMESTAMP
+    name: user_first_touch_timestamp
+    datatype: timestamp
+    labels: []
+    folder: Event User
+  - column: USER_ID
+    name: user_id
+    datatype: string
+    labels: []
+    folder: Event User
+  - column: USER_LTV_CURRENCY
+    name: user_ltv_currency
+    datatype: string
+    labels: []
+    folder: Event User
+  - column: USER_LTV_REVENUE
+    name: user_ltv_revenue
+    datatype: float
+    labels: []
+    folder: Event User
+  - column: USER_PROPERTIES
+    name: user_properties
+    datatype: string
+    labels: []
+    folder: Event User
+  - column: USER_PSEUDO_ID
+    name: user_pseudo_id
+    datatype: string
+    labels: []
+    folder: Event User

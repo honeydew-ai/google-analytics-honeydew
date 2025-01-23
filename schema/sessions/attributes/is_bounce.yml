@@ -1,0 +1,10 @@
+type: calculated_attribute
+entity: sessions
+name: is_bounce
+description: >-
+  If Session Duration Minutes = 0 and there are no engaged events in the
+  Session, then Bounce = True.
+datatype: bool
+labels: []
+sql: |-
+  sessions.session_duration = 0 and sessions.is_engaged_session = false

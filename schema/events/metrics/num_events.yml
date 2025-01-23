@@ -1,0 +1,7 @@
+type: metric
+entity: events
+name: num_events
+datatype: number
+labels: []
+sql: |-
+  count(events.session_key)

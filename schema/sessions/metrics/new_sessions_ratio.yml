@@ -1,0 +1,9 @@
+type: metric
+entity: sessions
+name: new_sessions_ratio
+description: |-
+  Ratio between 'New sessions' and 'Total number of sessions'
+datatype: float
+labels: []
+sql: |-
+  sessions.num_new_sessions / sessions.num_sessions

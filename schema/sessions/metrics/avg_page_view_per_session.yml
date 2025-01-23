@@ -1,0 +1,9 @@
+type: metric
+entity: sessions
+name: avg_page_view_per_session
+description: |-
+  Average Count of 'Page_View' events within each Session.
+datatype: float
+labels: []
+sql: |-
+  AVG(sessions.page_view_count)

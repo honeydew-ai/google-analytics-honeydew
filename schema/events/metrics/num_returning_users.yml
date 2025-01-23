@@ -1,0 +1,11 @@
+type: metric
+entity: events
+name: num_returning_users
+description: >-
+  The number of new unique users who logged the first_open or first_visit event
+  in the specified date range.
+datatype: number
+labels: []
+folder: Users
+sql: |-
+  users.count FILTER (WHERE sessions.is_first_visit_session = FALSE)

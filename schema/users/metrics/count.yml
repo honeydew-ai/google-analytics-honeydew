@@ -1,0 +1,8 @@
+type: metric
+sql: |-
+  COUNT(*)
+entity: users
+name: count
+description: |-
+  Auto-generated Metric: count of records in the entity
+datatype: number

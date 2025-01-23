@@ -1,0 +1,7 @@
+type: calculated_attribute
+entity: sessions
+name: Session_start
+datatype: timestamp
+labels: []
+sql: |-
+  MIN(events.event_timestamp)

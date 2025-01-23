@@ -1,0 +1,9 @@
+type: calculated_attribute
+entity: events
+name: session_key
+datatype: string
+labels: []
+sql: >-
+
+  events.event_date || events.ga_session_id
+  ||events.ga_session_number ||events.user_pseudo_id
